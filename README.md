@@ -21,18 +21,18 @@ The error is thrown from within `insertConstructableStyleSheet`, at the moment t
 ```javascript
     constructor() {
         super();
-        this.isDynamic = false; // `false` instead of `true`
+        this.isManual = false; // `false` instead of `true`
     }
 ```
 
-The app renders, but (of course) without dynamic content.
+The app renders, but (of course) without manually-constructed content.
 
 **NOTE: This failure was introduced with lwc@2.3.7. Using an earlier version works.**
 
 ## What is the expected behavior?
 
-The app should render the dynamic content without issue. It does in fact do this if you
-downgrade the `lwc` package to version `2.3.4`.
+The app should render the manually-constructed content without issue. It does in fact do
+this if you downgrade the `lwc` package to version `2.3.4`.
 
 ## How to start the app?
 

@@ -2,12 +2,12 @@ import { LightningElement, api, createElement } from 'lwc';
 import Block from '../block/block';
 
 export default class App extends LightningElement {
-    @api isDynamic;
+    @api isManual;
     _docRendered = false;
 
     constructor() {
         super();
-        this.isDynamic = true;
+        this.isManual = true;
     }
 
     insertDocHtml() {
@@ -21,7 +21,7 @@ export default class App extends LightningElement {
             blockEl.setAttribute('lwc:dom', 'manual');
             const blockCmp = createElement('my-block', { is: Block });
             Object.assign(blockCmp, {
-                dynamicBlockContent: 'Wow! This block has dynamic content!'
+                manualBlockContent: 'Wow! This block has manually-constructed content!'
             });
             blockEl.innerHTML = '';
             blockEl.appendChild(blockCmp);
@@ -34,7 +34,7 @@ export default class App extends LightningElement {
     }
 
     renderedCallback() {
-        if (this.isDynamic && !this._docRendered) {
+        if (this.isManual && !this._docRendered) {
             this.insertDocHtml();
             this._docRendered = true;
         }
