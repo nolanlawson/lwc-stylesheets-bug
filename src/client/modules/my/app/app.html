@@ -1,0 +1,8 @@
+<template>
+    <template if:true={isDynamic}>
+        <div class="container" data-name="content" lwc:dom="manual"></div>
+    </template>
+    <template if:false={isDynamic}>
+        <my-block></my-block>
+    </template>
+</template>
