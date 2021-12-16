@@ -13,10 +13,10 @@ export default class App extends LightningElement {
     insertDocHtml() {
         const containerEl = this.template.querySelector(".container");
 
-        const templateEl = document.createElement('template');
+        const templateEl = document.createElement('div');
         templateEl.innerHTML = '<div class="block-section"></div>';
 
-        const blockEls = templateEl.content.querySelectorAll('.block-section');
+        const blockEls = templateEl.querySelectorAll('.block-section');
         blockEls.forEach((blockEl) => {
             blockEl.setAttribute('lwc:dom', 'manual');
             const blockCmp = createElement('my-block', { is: Block });
@@ -29,7 +29,7 @@ export default class App extends LightningElement {
 
         if (containerEl) {
             containerEl.innerHTML = "";
-            containerEl.append(templateEl.content);
+            containerEl.appendChild(templateEl);
         }
     }
 
